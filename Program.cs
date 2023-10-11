@@ -8,11 +8,15 @@ namespace NumberGame
         {
             Console.WriteLine("Välkommen! Jag tänker på ett nummer. Kan du gissa vilket? Du får fem försök");
             Random random = new Random();
-            int number = random.Next(1, 21);
-            int Try = 0;
-            bool checkGuess = false;
+            checkguess(0,(random.Next(1, 21)));
+            bool correctGuess = false;
+        }
 
 
+
+        public static void checkguess(int Try, int number)
+        {
+            bool correctguess = false;
             while (Try < 5)
             {
                 Console.Write("Gissa på ett nummer mellan 1 och 20: ");
@@ -23,7 +27,7 @@ namespace NumberGame
                     if (number == userGuess)
                     {
                         Console.WriteLine("Wohoo! Du klarade det!");
-                        checkGuess = true;
+                        correctguess = true;
                         break;
                     }
 
@@ -36,32 +40,21 @@ namespace NumberGame
                     {
                         Console.WriteLine("Tyvärr, du gissade för högt!");
                     }
-                  
+
+                    
                 }
 
-                else
+                if (!correctguess)
                 {
                     Console.WriteLine("Tyvärr, du lyckades inte gissa talet på fem försök!");
-                }
-                if (!checkGuess)
-                {
-                    Console.WriteLine("du kan bara skriva ett nummer");
                 }
             }
 
 
 
 
-
-
-
-
-        
-
-         
-
         }
-    
-        
+
+
     }
 }
